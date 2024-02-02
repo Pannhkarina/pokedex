@@ -146,6 +146,20 @@
 
 }
 
+.btnDetailsPokemon {
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    cursor: pointer;
+
+}
+.pokemon:hover, .pokemon:focus {
+    filter: brightness(0.9) 
+  }
+
+
 @media screen and (min-width: 380px) {
     .pokemons {
 

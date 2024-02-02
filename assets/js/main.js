@@ -1,7 +1,7 @@
-const pokemonList = document.getElementById("pokemonList")
-const loadMoreButton = document.getElementById("loadMoreButton")
-const maxRecords = 151
-const limit = 5
+const pokemonList = document.getElementById("pokemonList");
+const loadMoreButton = document.getElementById("loadMoreButton");
+const maxRecords = 151;
+const limit = 5;
 let offset = 0;
 
 function loadPokemonItens(offset, limit) {
@@ -11,7 +11,9 @@ function loadPokemonItens(offset, limit) {
       const newHtml = pokemons
         .map(
           (pokemon) => `
+          <button class="btnDetailsPokemon" data-id="${pokemon.number}" aria-label="Detalhes do ${pokemon.name}">
       <li class="pokemon ${pokemon.type}">
+      
       <span class="number">#${pokemon.number}</span>
       <span class="name">${pokemon.name}</span>
       <div class="detail">
@@ -24,29 +26,45 @@ function loadPokemonItens(offset, limit) {
               src="${pokemon.photo}"
               alt="${pokemon.name}">
       </div>
+      
   </li>
-  `).join('');
+  </button>
+ 
+  `).join("");
       pokemonList.innerHTML += newHtml;
+      showDetailsPokemon();
     })
     .catch((error) => console.log(error));
 }
 
+function showDetailsPokemon() {
+  const buttons = document.querySelectorAll('.btnDetailsPokemon');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      console.log("clicou botão details");
+      debugger;
+      const url = `pokemon-details.html`; // Constrói a URL
+      window.location.href = url;
+    });
+  });
+}
+
 loadPokemonItens(offset, limit);
 
-loadMoreButton.addEventListener('click', () => {
-    offset += limit
-    const qtdRecordsNexPage = offset + limit
+loadMoreButton.addEventListener("click", () => {
+  offset += limit;
+  const qtdRecordsNexPage = offset + limit;
 
-    if (qtdRecordsNexPage >= maxRecords){
-        const newlimit = maxRecords - offset
-        loadPokemonItens(offset, newlimit);
+  console.log("click botão load");
 
-        loadMoreButton.parentElement.removeChild(loadMoreButton)
+  if (qtdRecordsNexPage >= maxRecords) {
+    const newlimit = maxRecords - offset;
+    loadPokemonItens(offset, newlimit);
 
-    }else{
-        loadPokemonItens(offset, limit);
-    }
+    loadMoreButton.parentElement.removeChild(loadMoreButton);
+  } else {
+    loadPokemonItens(offset, limit);
+  }
+});
 
-    
-    
-})
+
