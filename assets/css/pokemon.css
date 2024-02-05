@@ -149,10 +149,10 @@
 .btnDetailsPokemon {
     background: transparent;
     border: none;
-    width: 100%;
     text-align: left;
-    padding: 10px;
     cursor: pointer;
+    margin: 0;
+    padding: 0;
 
 }
 .pokemon:hover, .pokemon:focus {

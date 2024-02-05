@@ -1,0 +1,164 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color:#77c850;
+}
+
+.pokemon {
+    padding-top: 2rem; /* Espaço acima */
+    padding-left: 1rem; /* Espaço à esquerda */
+    padding-right: 1rem; /* Espaço à direita */
+    position: relative;
+
+}
+
+.pokemon .name {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: .25rem;
+    text-transform: capitalize;
+}
+
+.pokemon .number {
+    color: #000;
+    opacity: 0.3;
+    position: absolute; /* Posicionamento absoluto em relação ao seu container mais próximo com posição relativa ou absoluta */
+    right: 0.9rem; /* Encosta à direita */
+
+}
+
+.pokemon .detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pokemon .detail .types {
+    align-self: flex-start;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+}
+
+.pokemon .detail .types .type {
+    color: #fff;
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    font-size: .625rem;
+    border-radius: 1rem;
+    text-align: center;
+    filter: brightness(1.1);
+    background-color: #77c850;
+}
+
+.pokemon .detail img {
+    max-width: 100%;
+    height: 125px;
+    align-self: auto;
+}
+
+.detailsPokemon {
+    height: 50vh; /* Isso define a altura para 50% da viewport height */
+    position: fixed; /* Fixa a seção na tela */
+    bottom: 0; /* Alinha a seção para a parte inferior da tela */
+    width: 100%; /* Ocupa 100% da largura da tela */
+    background-color: #f0f0f0; /* Cor de fundo para distinguir a seção, ajuste conforme necessário */
+    box-sizing: border-box; /* Garante que padding e border não afetem a largura/altura definida */
+    padding: 20px; /* Espaçamento interno para o conteúdo, ajuste conforme necessário */
+    overflow-y: auto; /* Adiciona barra de rolagem se o conteúdo exceder a altura */
+    border-radius: 1rem 1rem 0 0;
+}
+
+.menuDetailsPokemon {
+    display: flex; /* Isso fará com que os itens do menu se alinhem lado a lado */
+    flex-wrap: wrap; /* Isso permite que os itens se ajustem conforme a largura da tela */
+    justify-content: space-around; /* Isso distribui os espaços uniformemente entre os itens */
+    list-style-type: none; /* Remove os marcadores padrão da lista */
+    padding: 0; /* Remove o padding padrão da lista */
+    margin: 0; /* Remove a margem padrão da lista */
+}
+
+/* Estilo básico para as abas */
+.menuDetailsPokemon li {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border-radius: 5rem;
+}
+
+.menuDetailsPokemon li a {
+    text-decoration: none;
+    color: #000
+}
+
+/* Estilo para a aba ativa */
+.menuDetailsPokemon li.active {
+    background-color: #ddd;
+    opacity: 1px;
+    color: #000;
+}
+
+/* Esconder todas as seções de conteúdo por padrão */
+.detailsPokemon article section {
+    display: none;
+}
+
+/* Mostrar a seção ativa */
+.detailsPokemon article section.active {
+    display: block;
+}
+
+@media screen and (min-width: 576px) {
+    .menuDetailsPokemon {
+
+        font-size: 1rem;    
+    
+        }
+    
+        .pokemon .name {
+            font-size: 2rem;
+        }
+    
+        .pokemon .number {
+            font-size: 1rem;
+        }
+        .pokemon .detail .types .type  {
+    
+            font-size: 1rem;
+        }
+    
+
+}
+
+
+@media screen and (min-width: 992px) {
+    .menuDetailsPokemon {
+
+    font-size: 2rem;    
+
+    }
+
+    .pokemon .name {
+        font-size: 2.6rem;
+    }
+
+    .pokemon .number {
+        font-size: 2.6rem;
+    }
+    .pokemon .detail .types .type  {
+
+        font-size: 1.625rem;
+    }
+
+    .pokemon .detail img {
+        height: 20rem;
+    }
+
+    
+
+}
+
+
+
