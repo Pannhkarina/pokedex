@@ -42,7 +42,9 @@ function showDetailsPokemon() {
   buttons.forEach(button => {
     button.addEventListener('click', () => {
       console.log("clicou botão details");
-      const url = `pokemon-details.html`; // Constrói a URL
+      const pokemonId = button.getAttribute('data-id');
+      //const url = `pokemon-details.html`;
+      const url = `pokemon-details.html?id=${pokemonId}`;
       window.location.href = url;
     });
   });
@@ -65,3 +67,8 @@ loadMoreButton.addEventListener("click", () => {
     loadPokemonItens(offset, limit);
   }
 });
+
+
+
+
+
